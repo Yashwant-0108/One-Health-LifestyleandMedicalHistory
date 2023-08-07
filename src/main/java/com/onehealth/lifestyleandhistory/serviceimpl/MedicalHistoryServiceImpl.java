@@ -1,5 +1,7 @@
 package com.onehealth.lifestyleandhistory.serviceimpl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,63 +12,53 @@ import com.onehealth.lifestyleandhistory.service.MedicalHistoryService;
 
 import java.util.List;
 
+@Service
 /**
  * Implementation of the MedicalHistoryService interface providing operations
  * for managing medical history-related data.
  */
-@Service
 public class MedicalHistoryServiceImpl implements MedicalHistoryService {
+
+    private static final Logger logger = LoggerFactory.getLogger(MedicalHistoryServiceImpl.class);
 
     @Autowired
     private MedicalHistoryRepository medicalHistoryRepository;
 
-    /**
-     * Retrieves a list of all MedicalHistory records.
-     *
-     * @return List of MedicalHistory records.
-     */
     @Override
     public List<MedicalHistory> getAllMedicalHistories() {
+        logger.info("Fetching all MedicalHistory records");
+
         return medicalHistoryRepository.findAll();
     }
 
-    /**
-     * Retrieves a specific MedicalHistory record by its recordId.
-     *
-     * @param recordId The unique ID of the MedicalHistory record.
-     * @return The retrieved MedicalHistory record.
-     * @throws RecordNotFoundException If the record is not found.
-     */
     @Override
     public MedicalHistory getMedicalHistoryByRecordId(Long recordId) throws RecordNotFoundException {
+        logger.info("Fetching MedicalHistory record by recordId: {}", recordId);
+
         return medicalHistoryRepository.findById(recordId)
-                .orElseThrow(() -> new RecordNotFoundException("Medical history not found with recordId: " + recordId));
+                .orElseThrow(() -> {
+                    logger.error("Medical history not found with recordId: {}", recordId);
+                    return new RecordNotFoundException("Medical history not found with recordId: " + recordId);
+                });
     }
 
-    /**
-     * Creates a new MedicalHistory record.
-     *
-     * @param medicalHistory The MedicalHistory object to be created.
-     * @return The created MedicalHistory record.
-     */
     @Override
     public MedicalHistory createMedicalHistory(MedicalHistory medicalHistory) {
+        logger.info("Creating new MedicalHistory record");
+
         return medicalHistoryRepository.save(medicalHistory);
     }
 
-    /**
-     * Updates an existing MedicalHistory record.
-     *
-     * @param recordId      The unique ID of the MedicalHistory record to be updated.
-     * @param medicalHistory The updated MedicalHistory object.
-     * @return The updated MedicalHistory record.
-     * @throws RecordNotFoundException If the record is not found.
-     */
     @Override
     public MedicalHistory updateMedicalHistory(Long recordId, MedicalHistory medicalHistory)
             throws RecordNotFoundException {
+        logger.info("Updating MedicalHistory record with recordId: {}", recordId);
+
         MedicalHistory existingMedicalHistory = medicalHistoryRepository.findById(recordId)
-                .orElseThrow(() -> new RecordNotFoundException("Medical history not found with recordId: " + recordId));
+                .orElseThrow(() -> {
+                    logger.error("Medical history not found with recordId: {}", recordId);
+                    return new RecordNotFoundException("Medical history not found with recordId: " + recordId);
+                });
 
         // Update the properties based on your needs.
         existingMedicalHistory.setAllergies(medicalHistory.getAllergies());
@@ -79,32 +71,25 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService {
         return medicalHistoryRepository.save(existingMedicalHistory);
     }
 
-    /**
-     * Deletes a MedicalHistory record by its recordId.
-     *
-     * @param recordId The unique ID of the MedicalHistory record to be deleted.
-     * @throws RecordNotFoundException If the record is not found.
-     */
     @Override
     public void deleteMedicalHistoryByRecordId(Long recordId) throws RecordNotFoundException {
+        logger.info("Deleting MedicalHistory record by recordId: {}", recordId);
+
         if (!medicalHistoryRepository.existsById(recordId)) {
+            logger.error("MedicalHistory not found with recordId: {}", recordId);
             throw new RecordNotFoundException("MedicalHistory not found with recordId: " + recordId);
         }
         medicalHistoryRepository.deleteById(recordId);
     }
 
-    /**
-     * Deletes all MedicalHistory records associated with a specific patientId and userId.
-     *
-     * @param patientId The unique ID of the patient.
-     * @param userId    The unique ID of the user.
-     * @throws RecordNotFoundException If no records are found for the given patientId and userId.
-     */
     @Override
     public void deleteMedicalHistoryByPatientIdAndUserId(Long patientId, Long userId) throws RecordNotFoundException {
+        logger.info("Deleting all MedicalHistory records associated with patientId: {} and userId: {}", patientId, userId);
+
         List<MedicalHistory> medicalHistories = medicalHistoryRepository.findByPatientIdAndUserId(patientId, userId);
 
         if (medicalHistories.isEmpty()) {
+            logger.error("MedicalHistory not found with patientId: {} and userId: {}", patientId, userId);
             throw new RecordNotFoundException("MedicalHistory not found with recordId: " + patientId + " " + userId);
         }
         medicalHistoryRepository.deleteAll(medicalHistories);

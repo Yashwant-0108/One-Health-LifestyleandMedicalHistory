@@ -12,7 +12,7 @@ import com.onehealth.lifestyleandhistory.exception.RecordNotFoundException;
 import com.onehealth.lifestyleandhistory.service.MedicalHistoryService;
 
 import java.util.List;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/lifeStyleAndHistory/MedicalHistory")
 /**
