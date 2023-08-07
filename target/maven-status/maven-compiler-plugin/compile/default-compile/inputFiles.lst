@@ -1,0 +1,17 @@
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\serviceimpl\LifeStyleServiceImpl.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\repository\MedicalHistoryRepository.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\entity\LifeStyle.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\OneHealthLifeStyleAndHistoryApplication.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\service\LifeStyleService.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\repository\LifeStyleRepository.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\serviceimpl\MedicalHistoryServiceImpl.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\exception\ProfileNotFoundException.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\DTO\ErrorMessageDTO.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\exception\GlobalExceptionHandler.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\entity\MedicalHistory.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\exception\RecordNotFoundException.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\exception\DatabaseException.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\controller\LifeStyleController.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\DTO\ResponseMessage.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\controller\MedicalHistoryController.java
+C:\Users\Administrator\Desktop\yjb one health\OneHealth_BE\OneHealth-LifeStyleAndHistory\src\main\java\com\onehealth\lifestyleandhistory\service\MedicalHistoryService.java
